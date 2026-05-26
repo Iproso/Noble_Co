@@ -1,0 +1,21 @@
+# Noble Collectors — AI Crawler Guidance
+> Private access and evidence-backed intelligence for exceptional collector assets.
+
+## About
+Noble Collectors is a luxury collector asset platform for cultural assets, fine art, design, luxury collectibles, and memorabilia.
+
+## Public Pages
+- /en/explore — Browse public artifact collection
+- /en/library — Noble Library (Heritage Atlas, Museums, Maison Heritage, Guides, Glossary)
+- /en/legal-trust — Legal & Trust Center
+- /en/auctions — Auction previews
+- /en/heritage-passport — Heritage Passport information
+
+## Restrictions
+- /admin/*, /account/*, /seller/* — Not for AI/robots
+- No private data, evidence vault, or personal information is exposed
+
+## Stop Notes
+- Noble Collectors does not provide AI-based authenticity, valuation, or certification
+- Noble Collectors does not facilitate open marketplace resale
+- All public content is DTO-whitelisted and reviewed

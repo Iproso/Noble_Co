@@ -1,0 +1,42 @@
+# Noble Collectors — Full AI Crawler Guidance
+> Private access and evidence-backed intelligence for exceptional collector assets.
+
+## Platform Identity
+Noble Collectors is a modular, multilingual (EN/AR), PWA-first luxury collector asset platform for serious collectors, estate owners, family offices, advisors, institutions, and designers.
+
+## Core Modules
+1. Public Discovery — Curated artifact browsing with public DTOs
+2. Collector Asset Taxonomy — 8 category families with risk tiers
+3. Built-in CMS — Governed content with workflow states
+4. Media Vault — Private originals + EXIF-stripped public variants
+5. Trust Spine — Deterministic Evidence Readiness Score (0-100)
+6. Heritage Passport — Curatorial dossier with provenance timeline
+7. Collectors' Salon — Private access-controlled rooms
+8. Noble Library — Heritage Atlas, Museum Index, Maison Heritage, Guides, Glossary
+9. Legal & Trust Center — Versioned legal policies with acceptance tracking
+10. Noble Introductions Circle — Trusted referral network
+
+## Public Routes
+- /explore — Browse categories and artifacts
+- /explore/[category] — Category-specific listing
+- /artifacts/[slug] — Artifact detail with cost clarity and viewing availability
+- /luxury-collectibles — Luxury category hub
+- /library — Heritage Atlas, Museums, Maison Heritage, Guides, Glossary
+- /legal-trust — Policy pages (privacy, terms, data protection)
+- /auctions — Auction preview calendar
+- /collectors-salon — Salon information
+- /heritage-passport — Passport documentation
+- /journal — Editorial content
+
+## Data Boundaries
+- All public output uses Zod-validated DTOs (whitelist only)
+- No raw database rows, no storage paths, no private evidence
+- No passport version or genome data in public
+- No reserve prices or bidder identity
+- RLS policies enforce 5 security zones (0-5)
+
+## Forbidden Claims
+- No AI authenticity or valuation claims
+- No certification guarantees
+- No fake auction/payment/KYC/shipping authority
+- No alcohol/wine/spirits content

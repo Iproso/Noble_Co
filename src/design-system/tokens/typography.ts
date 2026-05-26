@@ -1,0 +1,48 @@
+export const typography = {
+  fontFamily: {
+    display: "'DM Serif Display', 'Georgia', serif",
+    sans: "'Inter', 'Helvetica Neue', 'Arial', sans-serif",
+    arabicDisplay: "'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif",
+    arabicSans: "'Noto Sans Arabic', 'Cairo', 'Tahoma', sans-serif",
+    mono: "'JetBrains Mono', 'Consolas', monospace",
+  },
+  fontSize: {
+    xs: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }],
+    sm: ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
+    base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '0.01em' }],
+    lg: ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0.01em' }],
+    xl: ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '0.01em' }],
+    '2xl': ['1.5rem', { lineHeight: '2rem', letterSpacing: '-0.01em' }],
+    '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.01em' }],
+    '4xl': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '-0.02em' }],
+    '5xl': ['3rem', { lineHeight: '3.5rem', letterSpacing: '-0.02em' }],
+    '6xl': ['3.75rem', { lineHeight: '4.25rem', letterSpacing: '-0.02em' }],
+  },
+  fontWeight: {
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    display: 400,
+  },
+  heading: {
+    h1: { fontSize: '2.25rem', lineHeight: '2.75rem', fontWeight: 400, fontFamily: 'display' },
+    h2: { fontSize: '1.875rem', lineHeight: '2.25rem', fontWeight: 400, fontFamily: 'display' },
+    h3: { fontSize: '1.5rem', lineHeight: '2rem', fontWeight: 400, fontFamily: 'display' },
+    h4: { fontSize: '1.25rem', lineHeight: '1.75rem', fontWeight: 500, fontFamily: 'sans' },
+    h5: { fontSize: '1.125rem', lineHeight: '1.5rem', fontWeight: 500, fontFamily: 'sans' },
+    h6: { fontSize: '1rem', lineHeight: '1.5rem', fontWeight: 600, fontFamily: 'sans' },
+  },
+  body: {
+    large: { fontSize: '1.125rem', lineHeight: '1.75rem' },
+    default: { fontSize: '1rem', lineHeight: '1.5rem' },
+    small: { fontSize: '0.875rem', lineHeight: '1.25rem' },
+    metadata: { fontSize: '0.75rem', lineHeight: '1rem', letterSpacing: '0.01em' },
+  },
+  arabic: {
+    headingSize: '110%',
+    lineHeight: '1.8',
+    bodyLineHeight: '1.7',
+  },
+} as const;

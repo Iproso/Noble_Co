@@ -1,0 +1,1 @@
+export { SalonRoomCard } from './SalonRoomCard';
