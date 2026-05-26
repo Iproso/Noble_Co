@@ -1,3 +1,4 @@
+import React from 'react';
 import { getTranslations } from 'next-intl/server';
 import { PublicShell } from '@/components/layouts/PublicShell';
 import { PageHero } from '@/components/features/global/PageHero';
@@ -41,9 +42,12 @@ export default async function CollectorsSalonPage({ params }: Props) {
       <section className="container-noble py-12">
         <h2 className="heading-2 text-deep-ink mb-8">{t('featuredRooms')}</h2>
         <div className="card-grid">
-          {mockSalonRooms.filter((r) => !r.isPrivate).map((room) => (
-            <SalonRoomCard key={room.id} locale={locale} room={room} />
-          ))}
+          {mockSalonRooms.reduce<React.ReactNode[]>((acc, room) => {
+            if (!room.isPrivate) {
+              acc.push(<SalonRoomCard key={room.id} locale={locale} room={room} />);
+            }
+            return acc;
+          }, [])}
         </div>
       </section>
     </PublicShell>
