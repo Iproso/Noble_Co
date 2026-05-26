@@ -7,9 +7,12 @@ export default async function PaymentsPage({ params }: Props) {
   const { locale } = await params;
   const isRtl = locale === 'ar';
 
-  const totalReceived = mockPayments
-    .filter(p => p.statusEn === 'Received')
-    .reduce((sum, p) => sum + parseFloat(p.amountEn.replace(/[$,]/g, '')), 0);
+  const totalReceived = mockPayments.reduce((sum, p) => {
+    if (p.statusEn === 'Received') {
+      return sum + parseFloat(p.amountEn.replace(/[$,]/g, ''));
+    }
+    return sum;
+  }, 0);
 
   return (
     <SellerShell locale={locale} title={isRtl ? 'المدفوعات' : 'Payments'}>
