@@ -2,17 +2,26 @@
 
 import { useState, useEffect } from 'react';
 
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
+}
+
 interface InstallPromptProps {
   locale: string;
 }
 
 export function InstallPrompt({ locale }: InstallPromptProps) {
-  const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e);
+      setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
     window.addEventListener('beforeinstallprompt', handler);
     return () => window.removeEventListener('beforeinstallprompt', handler);
@@ -26,8 +35,8 @@ export function InstallPrompt({ locale }: InstallPromptProps) {
       <div className="flex gap-2">
         <button
           onClick={async () => {
-            (deferredPrompt as any).prompt();
-            const result = await (deferredPrompt as any).userChoice;
+            deferredPrompt.prompt();
+            const result = await deferredPrompt.userChoice;
             if (result.outcome === 'accepted') setDeferredPrompt(null);
           }}
           className="px-4 py-1.5 bg-antique-gold text-warm-white rounded-lg text-xs font-medium"
