@@ -7,10 +7,9 @@ interface NetworkStatusProps {
 }
 
 export function NetworkStatus({ locale }: NetworkStatusProps) {
-  const [isOnline, setIsOnline] = useState(true);
+  const [isOnline, setIsOnline] = useState(() => typeof navigator !== 'undefined' ? navigator.onLine : true);
 
   useEffect(() => {
-    setIsOnline(navigator.onLine);
     const on = () => setIsOnline(true);
     const off = () => setIsOnline(false);
     window.addEventListener('online', on);

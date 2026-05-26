@@ -96,7 +96,7 @@ export default async function ArtifactDetailPage({ params }: Props) {
               />
             )}
             <span className="text-sm text-text-secondary">
-              {[artifact.yearPeriod, artifact.maison].filter(Boolean).join(' · ')}
+              {artifact.yearPeriod && artifact.maison ? `${artifact.yearPeriod} · ${artifact.maison}` : (artifact.yearPeriod || artifact.maison || '')}
             </span>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default async function ArtifactDetailPage({ params }: Props) {
                         {isRtl && a.titleAr ? a.titleAr : a.titleEn}
                       </p>
                       <span className="text-xs text-text-secondary mt-1 block">
-                        {[a.yearPeriod, a.maison].filter(Boolean).join(' · ')}
+                        {a.yearPeriod && a.maison ? `${a.yearPeriod} · ${a.maison}` : (a.yearPeriod || a.maison || '')}
                       </span>
                     </a>
                   ))}

@@ -1,17 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface ThemeToggleProps {
   locale: string;
 }
 
 export function ThemeToggle({ locale }: ThemeToggleProps) {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    setDark(document.documentElement.dataset.theme === 'dark');
-  }, []);
+  const [dark, setDark] = useState(() => typeof document !== 'undefined' ? document.documentElement.dataset.theme === 'dark' : false);
 
   const toggle = () => {
     const next = !dark;
