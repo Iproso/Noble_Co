@@ -1,4 +1,4 @@
-import { supabase, supabaseAdmin } from '@/lib/db/client';
+import { supabaseAdmin } from '@/lib/db/client';
 
 const STORAGE_BUCKET = 'media';
 const ORIGINALS_PREFIX = 'originals';
