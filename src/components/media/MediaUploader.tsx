@@ -26,10 +26,10 @@ export function MediaUploader({
     setUploading(true);
     setError(null);
 
-    for (const file of Array.from(files)) {
+    const uploadPromises = Array.from(files).map(async (file) => {
       if (file.size > 50 * 1024 * 1024) {
         setError(isRtl ? 'حجم الملف يتجاوز 50 ميغابايت' : 'File size exceeds 50MB');
-        continue;
+        return;
       }
 
       const formData = new FormData();
@@ -54,7 +54,9 @@ export function MediaUploader({
       } catch {
         setError(isRtl ? 'فشل التحميل' : 'Upload failed');
       }
-    }
+    });
+
+    await Promise.all(uploadPromises);
 
     setUploading(false);
   }, [assetId, onUploadComplete, isRtl]);
