@@ -16,7 +16,7 @@ export function validateEnv() {
     for (const issue of result.error.issues) {
       console.error(`  - ${issue.path.join('.')}: ${issue.message}`);
     }
-    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'production') {
+    if (typeof process !== 'undefined') {
       throw new Error('Environment validation failed');
     }
     return envSchema.parse({
