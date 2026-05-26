@@ -64,7 +64,7 @@ export function ArtifactCard({
         </h3>
         {(yearPeriod || maison) && (
           <p className="text-xs text-text-secondary">
-            {[yearPeriod, maison].filter(Boolean).join(' · ')}
+            {yearPeriod && maison ? `${yearPeriod} · ${maison}` : (yearPeriod || maison || '')}
           </p>
         )}
         {displayEvidence && (
