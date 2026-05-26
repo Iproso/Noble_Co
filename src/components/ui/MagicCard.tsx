@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef, useState, type ReactNode } from 'react';
+import { useRef, useState } from 'react';
 
 interface MagicCardProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 }
 
