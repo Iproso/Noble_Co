@@ -7,7 +7,7 @@ CREATE POLICY "legal_trust_pages_public_read" ON legal_trust_pages FOR SELECT US
 CREATE POLICY "auction_lots_public_read" ON auction_lots FOR SELECT USING (public_visibility = true);
 
 -- Zone 1 — Owner Scoped
-CREATE POLICY "collector_assets_owner_scoped" ON collector_assets FOR ALL USING (user_id = auth.uid());
+CREATE POLICY "collector_assets_owner_scoped" ON collector_assets FOR ALL USING (created_by = auth.uid());
 CREATE POLICY "media_assets_owner_scoped" ON media_assets FOR ALL USING (uploaded_by = auth.uid());
 CREATE POLICY "submission_drafts_owner_scoped" ON submission_drafts FOR ALL USING (user_id = auth.uid());
 CREATE POLICY "room_access_owner_scoped" ON room_access FOR SELECT USING (user_id = auth.uid());

@@ -1,7 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useRef, useState, useEffect } from 'react';
-import { GlobeCanvas } from './GlobeCanvas';
+
+const GlobeCanvas = dynamic(() => import('./GlobeCanvas').then((m) => m.GlobeCanvas), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface GlobeHeroProps {
   title: string;

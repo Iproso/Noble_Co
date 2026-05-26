@@ -271,6 +271,7 @@ CREATE TABLE heritage_passports (
   asset_id uuid NOT NULL UNIQUE REFERENCES collector_assets(id),
   version integer NOT NULL DEFAULT 1,
   status varchar(32) NOT NULL DEFAULT 'draft',
+  public_visibility boolean DEFAULT false,
   public_preview jsonb DEFAULT '{}'::jsonb,
   private_dossier jsonb DEFAULT '{}'::jsonb,
   created_by uuid REFERENCES users(id),
@@ -435,6 +436,7 @@ CREATE TABLE auction_lots (
   display_order integer,
   viewing_available boolean DEFAULT false,
   condition_report_available boolean DEFAULT false,
+  public_visibility boolean DEFAULT false,
   status varchar(32) NOT NULL DEFAULT 'preview',
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
