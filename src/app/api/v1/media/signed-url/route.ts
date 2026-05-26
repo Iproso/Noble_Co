@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth/server';
-import { createSignedUrl } from '@/lib/media';
+import { createSignedUrl, isPathSafe } from '@/lib/media';
 import { handleCors, corsHeaders } from '@/lib/security/cors';
 import { logger } from '@/lib/logger';
 import { z } from 'zod';
@@ -33,6 +33,14 @@ export async function POST(request: NextRequest) {
     }
 
     const { path, expiresInSeconds } = parsed.data;
+
+    if (!isPathSafe(path)) {
+      return NextResponse.json(
+        { error: 'Invalid path' },
+        { status: 400, headers: corsHeaders(request.headers.get('origin')) }
+      );
+    }
+
     const signedUrl = await createSignedUrl(path, Math.min(expiresInSeconds, 3600));
 
     if (!signedUrl) {
