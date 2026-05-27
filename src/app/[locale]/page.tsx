@@ -32,8 +32,8 @@ export default async function HomePage({ params }: Props) {
   ];
 
   const titleHtml = isRtl
-    ? 'نوبل<span class="text-antique-gold">·</span>كوليكتورز'
-    : 'Noble<span class="text-antique-gold">·</span>Collectors';
+    ? <>نوبل<span className="text-antique-gold">·</span>كوليكتورز</>
+    : <>Noble<span className="text-antique-gold">·</span>Collectors</>;
 
   return (
     <PublicShell locale={locale}>

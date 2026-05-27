@@ -9,7 +9,7 @@ const GlobeCanvas = dynamic(() => import('./GlobeCanvas').then((m) => m.GlobeCan
 });
 
 interface GlobeHeroProps {
-  title: string;
+  title: React.ReactNode;
   tagline: string;
   exploreLabel: string;
   salonLabel: string;
@@ -54,10 +54,9 @@ export function GlobeHero({
       {/* Content overlay */}
       <div className="relative z-10 container-noble py-20 md:py-28">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h1
-            className="heading-1 rose-gold-text"
-            dangerouslySetInnerHTML={{ __html: title }}
-          />
+          <h1 className="heading-1 rose-gold-text">
+            {title}
+          </h1>
           <p className="body-large text-text-secondary max-w-xl mx-auto">
             {tagline}
           </p>
