@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useRef, useState, useEffect } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 
 const GlobeCanvas = dynamic(() => import('./GlobeCanvas').then((m) => m.GlobeCanvas), {
   ssr: false,
@@ -56,7 +57,7 @@ export function GlobeHero({
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <h1
             className="heading-1 rose-gold-text"
-            dangerouslySetInnerHTML={{ __html: title }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
           />
           <p className="body-large text-text-secondary max-w-xl mx-auto">
             {tagline}
